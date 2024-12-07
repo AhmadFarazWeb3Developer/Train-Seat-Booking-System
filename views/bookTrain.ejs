@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Booking Form</title>
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto py-4">
+      <h1 class="text-md font-medium text-zinc-500 text-center mb-6">
+        Book Your Train Seat
+      </h1>
+
+      <div
+        class="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6 border-[1px] border-zinc-300"
+      >
+        <form
+          id="bookingForm"
+          class="space-y-4"
+          action="/booking/create"
+          method="POST"
+        >
+          <!-- Train Selection -->
+          <div>
+            <label class="block text-sm font-medium mb-1" for="train">
+              Select Train
+            </label>
+            <select
+              id="train"
+              name="train"
+              class="w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              required
+            >
+              <option value="" disabled selected>Select a train</option>
+              <option value="Green Line Express">Green Line Express</option>
+              <option value="Karakoram Express">Karakoram Express</option>
+              <option value="Tezgam Express">Tezgam Express</option>
+              <option value="Jinnah Express">Jinnah Express</option>
+              <option value="Awam Express">Awam Express</option>
+              <option value="Millat Express">Millat Express</option>
+              <option value="Pakistan Express">Pakistan Express</option>
+              <option value="Rehman Baba Express">Rehman Baba Express</option>
+              <option value="Shalimar Express">Shalimar Express</option>
+              <option value="Bahauddin Zakaria Express">
+                Bahauddin Zakaria Express
+              </option>
+            </select>
+          </div>
+
+          <!-- Seats -->
+          <div>
+            <label class="block text-sm font-medium mb-1" for="seats">
+              Seats
+            </label>
+            <input
+              type="number"
+              id="seats"
+              name="seats"
+              placeholder="Enter number of seats"
+              class="w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              required
+            />
+          </div>
+
+          <!-- Starting Station -->
+          <div>
+            <label class="block text-sm font-medium mb-1" for="startingStation">
+              Starting Station
+            </label>
+            <input
+              type="text"
+              id="startingStation"
+              name="starting_station"
+              placeholder="Enter starting station"
+              class="w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              required
+            />
+          </div>
+
+          <!-- Ending Station -->
+          <div>
+            <label class="block text-sm font-medium mb-1" for="endingStation">
+              Ending Station
+            </label>
+            <input
+              type="text"
+              id="endingStation"
+              name="ending_station"
+              placeholder="Enter ending station"
+              class="w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              required
+            />
+          </div>
+
+          <!-- Arrival Time -->
+          <div>
+            <label class="block text-sm font-medium mb-1" for="arrivalTime">
+              Arrival Time
+            </label>
+            <input
+              type="time"
+              id="arrivalTime"
+              name="arrival_time"
+              class="cursor-pointer w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              required
+            />
+          </div>
+
+          <!-- Departure Time -->
+          <div>
+            <label class="block text-sm font-medium mb-1" for="departureTime">
+              Departure Time
+            </label>
+            <input
+              type="time"
+              id="departureTime"
+              name="departure_time"
+              class="cursor-pointer w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              required
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-600 cursor-pointer"
+          >
+            Submit Booking
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
