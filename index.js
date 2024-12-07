@@ -9,14 +9,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 const userRoute = require("./routes/user.router");
-const trainRoute = require("./routes/train.router");
+const bookingTrainRoute = require("./routes/bookingTrain.router");
+const manageTrain = require("./routes/manageTrain.router");
 router.use((req, res, next) => {
   console.log(`Method: ${req.method}, URL: ${req.url}`);
   next();
 });
 
 app.use("/user", userRoute);
-app.use("/booking", trainRoute);
+app.use("/booking", bookingTrainRoute);
+app.use("/admin", manageTrain);
 connectDB()
   .then(() => {
     app.listen(3000, (req, res) => {

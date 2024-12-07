@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
   },
   bookedTrain: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "train",
+    ref: "book",
   },
 });
 

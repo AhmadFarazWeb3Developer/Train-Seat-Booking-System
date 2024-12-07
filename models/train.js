@@ -1,22 +1,26 @@
 const mongoose = require("mongoose");
+
 const trainSchema = mongoose.Schema({
   train_name: {
     type: String,
+    required: true,
   },
   train_type: {
     type: String,
+    required: true,
   },
-  availiableSeats: {
+  total_seats: {
     type: Number,
-    default: 1000,
+    required: true,
   },
   booked: [
     {
-      type: mongoose.Types.ObjectId,
-      ref: "book",
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "booked",
     },
   ],
 });
 
 const trainModel = mongoose.model("train", trainSchema);
+
 module.exports = trainModel;
