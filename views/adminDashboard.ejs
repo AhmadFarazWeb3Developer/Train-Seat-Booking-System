@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Admin Dashboard</title>
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <!-- Dashboard Container -->
+    <div class="container mx-auto py-10">
+      <!-- Dashboard Header -->
+      <h1 class="text-4xl font-bold text-center text-indigo-600 mb-6">
+        Admin Dashboard
+      </h1>
+
+      <div class="grid">
+        <div class="bg-white shadow-md rounded-lg p-6 border border-gray-300">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Bookings</h2>
+          <table class="w-full table-auto text-left">
+            <thead>
+              <tr
+                class="border-[1px] border-zinc-300 bg-blue-600 text-white text-sm font-semibold"
+              >
+                <th class="px-4 py-2">Customer</th>
+                <th class="px-4 py-2">Train</th>
+                <th class="px-4 py-2">Seats</th>
+                <th class="px-4 py-2">Starting Station</th>
+                <th class="px-4 py-2">Ending Station</th>
+                <th class="px-4 py-2">Arrival Time</th>
+                <th class="px-4 py-2">Departure Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Loop through allUsers -->
+              <% allUsers.forEach(user => { %>
+              <tr class="border-[1px] border-zinc-300">
+                <td class="px-4 py-2 text-sm">
+                  <%= user.customer.customer_name %>
+                </td>
+                <td class="px-4 py-2 text-sm"><%= user.train.train_name %></td>
+                <td class="px-4 py-2 text-sm"><%= user.seats %></td>
+                <td class="px-4 py-2 text-sm"><%= user.starting_station %></td>
+                <td class="px-4 py-2 text-sm"><%= user.ending_station %></td>
+                <td class="px-4 py-2 text-sm"><%= user.arrival_time %></td>
+                <td class="px-4 py-2 text-sm"><%= user.departure_time %></td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

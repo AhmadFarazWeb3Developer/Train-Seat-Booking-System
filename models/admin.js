@@ -7,11 +7,10 @@ const adminSchema = mongoose.Schema({
   admin_email: {
     type: String,
   },
-
-  admins_phone: {
+  admin_password: {
     type: String,
   },
 });
 
-const userModel = mongoose.model("admin", adminSchema);
-module.exports = userModel;
+const adminModel = mongoose.model("admin", adminSchema);
+module.exports = adminModel;

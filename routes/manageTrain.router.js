@@ -3,7 +3,9 @@ const addTrain = require("../controllers/train/addTrain.controller");
 const trainModel = require("../models/train");
 const router = express.Router();
 
-router.get("/", (req, res) => {
+
+
+router.get("/addTrain", (req, res) => {
   res.render("addTrain");
 });
 

@@ -1,10 +1,12 @@
 const userModel = require("../../models/user");
 const generateToken = require("../../utils/generateJWT.utils");
 const registerUser = async (req, res) => {
-  const { customer_name, customer_email, customer_phone } = req.body;
+  const { customer_name, customer_password, customer_email, customer_phone } =
+    req.body;
   const user = await userModel.create({
     customer_name,
     customer_email,
+    customer_password,
     customer_phone,
   });
 

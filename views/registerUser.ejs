@@ -9,64 +9,137 @@
   <body class="bg-gray-100 text-gray-900">
     <div class="container mx-auto py-10">
       <h1 class="text-3xl font-bold text-zinc-500 text-center mb-6">
-        Register Yourself
+        Welcome to Train Booking
       </h1>
 
       <div
-        class="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 border-[1px] border-zinc-300"
+        class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6"
       >
-        <form
-          id="bookingForm"
-          class="space-y-4"
-          action="/user/create"
-          method="post"
+        <!-- Register Form -->
+        <div
+          class="max-w-md bg-white shadow-md rounded-lg p-6 border-[1px] border-zinc-300"
         >
-          <div>
-            <label class="block text-sm font-medium mb-1" for="customerName"
-              >Name</label
-            >
-            <input
-              type="text"
-              id="customerName"
-              name="customer_name"
-              placeholder="Enter your name"
-              class="w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
-            />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium mb-1" for="customerEmail"
-              >Email</label
-            >
-            <input
-              type="email"
-              id="customerEmail"
-              name="customer_email"
-              placeholder="Enter your email"
-              class="w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
-            />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium mb-1" for="customerPhone"
-              >Phone</label
-            >
-            <input
-              type="tel"
-              id="customerPhone"
-              name="customer_phone"
-              placeholder="Enter your phone number"
-              class="w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
-            />
-          </div>
-
-          <button
-            type="submit"
-            class="w-full bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-600 cursor-pointer"
+          <h2 class="text-2xl font-semibold text-zinc-500 text-center mb-4">
+            Register Yourself
+          </h2>
+          <form
+            id="bookingForm"
+            class="space-y-4"
+            action="/user/create"
+            method="post"
           >
-            Register
-          </button>
-        </form>
+            <div>
+              <label class="block text-sm font-medium mb-1" for="customerName"
+                >Name</label
+              >
+              <input
+                type="text"
+                id="customerName"
+                name="customer_name"
+                placeholder="Enter your name"
+                class="w-full max-w-lg rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-1" for="customerEmail"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="customerEmail"
+                name="customer_email"
+                placeholder="Enter your email"
+                class="w-full max-w-lg rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-sm font-medium mb-1"
+                for="customerPassword"
+                >Password</label
+              >
+              <input
+                type="password"
+                id="customerPassword"
+                name="customer_password"
+                placeholder="Enter your password"
+                class="w-full max-w-lg rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1" for="customerPhone"
+                >Phone</label
+              >
+              <input
+                type="tel"
+                id="customerPhone"
+                name="customer_phone"
+                placeholder="Enter your phone number"
+                class="w-full max-w-lg rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-600 cursor-pointer"
+            >
+              Register
+            </button>
+          </form>
+        </div>
+
+        <!-- OR Divider -->
+        <div class="text-center text-zinc-500 font-semibold">OR</div>
+
+        <!-- Login Form -->
+        <div
+          class="max-w-md bg-white shadow-md rounded-lg p-6 border-[1px] border-zinc-300"
+        >
+          <h2 class="text-2xl font-semibold text-zinc-500 text-center mb-4">
+            Login
+          </h2>
+          <form
+            id="loginForm"
+            class="space-y-4"
+            action="/user/login"
+            method="post"
+          >
+            <div>
+              <label class="block text-sm font-medium mb-1" for="loginEmail"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="loginEmail"
+                name="login_email"
+                placeholder="Enter your email"
+                class="w-full max-w-lg rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-1" for="loginPassword"
+                >Password</label
+              >
+              <input
+                type="password"
+                id="loginPassword"
+                name="login_password"
+                placeholder="Enter your password"
+                class="w-full max-w-lg rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-600 cursor-pointer"
+            >
+              Login
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </body>

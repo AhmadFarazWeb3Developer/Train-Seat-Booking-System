@@ -7,16 +7,22 @@ const cancelBooking = async (req, res) => {
     const user = await userModel.findOne({
       customer_email: req.user.customer_email,
     });
+
     if (!user || !user.bookedTrain) {
       return res.status(404).send("No User or Booking Found");
     }
 
+    console.log(user);
+
     const bookedTrain = await bookingModel.findOne({
-      _id: user.bookedTrain._id,
+      _id: req.params.id,
     });
+
     if (!bookedTrain) {
       return res.status(404).send("Booking record not found");
     }
+
+    console.log(bookedTrain);
 
     const adminTrain = await trainModel.findOne({ _id: bookedTrain.train._id });
     if (!adminTrain) {
@@ -26,9 +32,11 @@ const cancelBooking = async (req, res) => {
     adminTrain.total_seats += bookedTrain.seats;
     await adminTrain.save();
 
-    await bookingModel.deleteOne({ _id: bookedTrain._id });
-    user.bookedTrain = null;
+    user.bookedTrain.pull(bookedTrain._id); // Remove the specific booking ID
     await user.save();
+
+    await bookingModel.deleteOne({ _id: bookedTrain._id });
+
 
     res.redirect("/user/train");
   } catch (error) {

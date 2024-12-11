@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Train Booking App - Admin</title>
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto py-10">
+      <h1 class="text-3xl font-bold text-zinc-500 text-center mb-6">
+        Admin Panel - Train Booking
+      </h1>
+
+      <div
+        class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6"
+      >
+        <!-- Admin Registration Form -->
+        <div
+          class="max-w-2xl bg-white shadow-md rounded-lg p-6 border-[1px] border-zinc-300"
+        >
+          <h2 class="text-2xl font-semibold text-zinc-500 text-center mb-4">
+            Admin Registration
+          </h2>
+          <form
+            id="adminRegisterForm"
+            class="space-y-4"
+            action="/admin/create"
+            method="post"
+          >
+            <div>
+              <label class="block text-sm font-medium mb-1" for="adminName"
+                >Name</label
+              >
+              <input
+                type="text"
+                id="adminName"
+                name="admin_name"
+                placeholder="Enter admin name"
+                class="w-full max-w-2xl rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-1" for="adminEmail"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="adminEmail"
+                name="admin_email"
+                placeholder="Enter admin email"
+                class="w-full max-w-2xl rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-1" for="adminPassword"
+                >Password</label
+              >
+              <input
+                type="password"
+                id="adminPassword"
+                name="admin_password"
+                placeholder="Enter admin password"
+                class="w-full max-w-2xl rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-600 cursor-pointer"
+            >
+              Register
+            </button>
+          </form>
+        </div>
+
+        <!-- OR Divider -->
+        <div class="text-center text-zinc-500 font-semibold">OR</div>
+
+        <!-- Admin Login Form -->
+        <div
+          class="max-w-2xl bg-white shadow-md rounded-lg p-6 border-[1px] border-zinc-300"
+        >
+          <h2 class="text-2xl font-semibold text-zinc-500 text-center mb-4">
+            Admin Login
+          </h2>
+          <form
+            id="adminLoginForm"
+            class="space-y-4"
+            action="/admin/login"
+            method="post"
+          >
+            <div>
+              <label
+                class="block text-sm font-medium mb-1"
+                for="adminLoginEmail"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="adminLoginEmail"
+                name="admin_email"
+                placeholder="Enter admin email"
+                class="w-full max-w-2xl rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-sm font-medium mb-1"
+                for="adminLoginPassword"
+                >Password</label
+              >
+              <input
+                type="password"
+                id="adminLoginPassword"
+                name="admin_password"
+                placeholder="Enter admin password"
+                class="w-full max-w-2xl rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-600 cursor-pointer"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

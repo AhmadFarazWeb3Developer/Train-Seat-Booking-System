@@ -5,13 +5,13 @@ const userBookedTrain = require("../controllers/user/userTrain.controller");
 const isLoggedIn = require("../middleware/isLoggedIn.middleware");
 const cancelBooking = require("../controllers/user/cancelBooking.controller");
 
-router.get("/", (req, res, next) => {
+router.get("/page", (req, res) => {
   res.render("registerUser");
 });
 
 router.post("/create", registerUser);
 
 router.get("/train", isLoggedIn, userBookedTrain);
-router.post("/booking/cancle", isLoggedIn, cancelBooking);
+router.post("/booking/cancle/:id", isLoggedIn, cancelBooking);
 
 module.exports = router;

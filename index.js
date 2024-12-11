@@ -15,16 +15,18 @@ app.set("view engine", "ejs");
 
 const userRoute = require("./routes/user.router");
 const bookingTrainRoute = require("./routes/bookingTrain.router");
-const manageTrain = require("./routes/manageTrain.router");
-
-router.use((req, res, next) => {
-  console.log(`Method: ${req.method}, URL: ${req.url}`);
-  next();
-});
+const manageTrainRoute = require("./routes/manageTrain.router");
+const adminRoute = require("./routes/admin.router");
 
 app.use("/user", userRoute);
 app.use("/booking", bookingTrainRoute);
-app.use("/admin", manageTrain);
+app.use("/admin", manageTrainRoute);
+app.use("/admin", adminRoute);
+
+app.use("/", (req, res) => {
+  res.render("index");
+});
+
 connectDB()
   .then(() => {
     app.listen(3000, (req, res) => {
