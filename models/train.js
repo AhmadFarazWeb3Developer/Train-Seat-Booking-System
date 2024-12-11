@@ -13,12 +13,6 @@ const trainSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  booked: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "booked",
-    },
-  ],
 });
 
 const trainModel = mongoose.model("train", trainSchema);

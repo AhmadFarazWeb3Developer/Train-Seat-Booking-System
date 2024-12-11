@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User's Booked Train</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto mt-10 px-4">
+      <h1 class="text-3xl font-bold text-center text-indigo-600 mb-6">
+        Booked Train Details
+      </h1>
+
+      <% if (user && bookedTrain) { %>
+      <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <h3 class="text-xl font-semibold text-indigo-500 mb-4">
+          User Information
+        </h3>
+        <p class="mb-2"><strong>Name:</strong> <%= user.customer_name %></p>
+        <p class="mb-2"><strong>Email:</strong> <%= user.customer_email %></p>
+        <p class="mb-2"><strong>Phone:</strong> <%= user.customer_phone %></p>
+      </div>
+
+      <form
+        class="bg-white shadow-md rounded-lg p-6 mb-6"
+        action="/user/booking/cancle"
+        method="post"
+      >
+        <h3 class="text-xl font-semibold text-indigo-500 mb-4">
+          Train Details
+        </h3>
+        <table class="min-w-full bg-white border border-gray-300">
+          <thead>
+            <tr class="bg-indigo-500 text-white">
+              <th class="py-2 px-4 border-b">Name</th>
+              <th class="py-2 px-4 border-b">Type</th>
+              <th class="py-2 px-4 border-b">Seats</th>
+              <th class="py-2 px-4 border-b">Pick</th>
+              <th class="py-2 px-4 border-b">Drop</th>
+              <th class="py-2 px-4 border-b">Departure</th>
+              <th class="py-2 px-4 border-b">Arrival</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-gray-100">
+              <td class="py-2 px-4 border-b text-center">
+                <%= bookedTrain.train.train_name %>
+              </td>
+              <td class="py-2 px-4 border-b text-center">
+                <%= bookedTrain.train.train_type %>
+              </td>
+              <td class="py-2 px-4 border-b text-center">
+                <%= bookedTrain.starting_station %>
+              </td>
+              <td class="py-2 px-4 border-b text-center">
+                <%= bookedTrain.ending_station %>
+              </td>
+              <td class="py-2 px-4 border-b text-center">
+                <%= bookedTrain.seats %>
+              </td>
+              <td class="py-2 px-4 border-b text-center">
+                <%= bookedTrain.departure_time %>
+              </td>
+              <td class="py-2 px-4 border-b text-center">
+                <%= bookedTrain.arrival_time %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="w-full py-1 flex items-end justify-end pt-4">
+          <button
+            type="submit"
+            class="text-white py-2 px-5 text-sm rounded-sm bg-rose-400"
+          >
+            Cancle Booking
+          </button>
+        </div>
+      </form>
+      <% } else { %>
+      <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <p class="text-red-500">No booking details available.</p>
+      </div>
+      <% } %>
+    </div>
+  </body>
+</html>

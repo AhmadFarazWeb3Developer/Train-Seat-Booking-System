@@ -99,9 +99,10 @@
               Arrival Time
             </label>
             <input
-              type="time"
+              type="text"
               id="arrivalTime"
               name="arrival_time"
+              placeholder="Enter arrival time (e.g., 2:30 PM)"
               class="cursor-pointer w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
               required
             />
@@ -113,9 +114,10 @@
               Departure Time
             </label>
             <input
-              type="time"
+              type="text"
               id="departureTime"
               name="departure_time"
+              placeholder="Enter departure time (e.g., 10:15 AM)"
               class="cursor-pointer w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-2 px-2 border-[1px] border-zinc-400"
               required
             />
@@ -131,5 +133,37 @@
         </form>
       </div>
     </div>
+
+    <!-- JavaScript for Time Conversion -->
+    <script>
+      // Function to convert 12-hour time format (AM/PM) to 24-hour format
+      function convertTo24HourFormat(time) {
+        const [hour, minute] = time.split(":");
+        const suffix = time.slice(-2).toUpperCase(); // AM or PM
+        let hourIn24 = parseInt(hour);
+
+        if (suffix === "PM" && hourIn24 < 12) {
+          hourIn24 += 12;
+        } else if (suffix === "AM" && hourIn24 === 12) {
+          hourIn24 = 0;
+        }
+
+        return `${hourIn24.toString().padStart(2, "0")}:${minute}`;
+      }
+
+      // Attach to the form submit event to convert times before sending to the server
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function (event) {
+          const arrivalTime = document.getElementById("arrivalTime").value;
+          const departureTime = document.getElementById("departureTime").value;
+
+          // Convert both times to 24-hour format
+          document.getElementById("arrivalTime").value =
+            convertTo24HourFormat(arrivalTime);
+          document.getElementById("departureTime").value =
+            convertTo24HourFormat(departureTime);
+        });
+    </script>
   </body>
 </html>

@@ -4,15 +4,16 @@ const app = express();
 const trainModel = require("../../models/train");
 const userModel = require("../../models/user");
 const bookingModel = require("../../models/book");
+
 const bookingTrain = async (req, res) => {
   try {
-    const customer = await userModel.findOne({
-      customer_email: "nadar@gmail.com",
+    const user = await userModel.findOne({
+      customer_email: req.user.customer_email,
     });
-    if (!customer) {
+
+    if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-
     const {
       train_name,
       seats,
@@ -23,9 +24,11 @@ const bookingTrain = async (req, res) => {
     } = req.body;
 
     const train = await trainModel.findOne({ train_name });
+    if (!train) {
+      return res.status(404).json({ error: "Train not found" });
+    }
 
     const booked = await bookingModel.create({
-      customer,
       train,
       seats,
       starting_station,
@@ -34,17 +37,12 @@ const bookingTrain = async (req, res) => {
       departure_time,
     });
 
-    customer.bookedTrain = train._id;
-    customer.save();
+    user.bookedTrain = booked._id;
+    await user.save();
 
-    const bookedTrain = await trainModel.findOne({ _id: train._id });
-
-    train.booked.push(bookedTrain);
-    await train.save();
     train.total_seats -= seats;
     await train.save();
-
-    res.status(201).json({ booked });
+    res.redirect("/user/train");
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
