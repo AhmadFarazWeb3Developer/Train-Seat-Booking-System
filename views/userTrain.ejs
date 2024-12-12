@@ -57,6 +57,7 @@
               <th class="py-2 px-4 border-b">Drop</th>
               <th class="py-2 px-4 border-b">Departure</th>
               <th class="py-2 px-4 border-b">Arrival</th>
+              <th class="py-2 px-4 border-b">Ticket Number</th>
             </tr>
           </thead>
           <tbody>
@@ -80,9 +81,13 @@
               <td class="py-2 px-4 border-b text-center">
                 <%= train.arrival_time %>
               </td>
+              <td class="py-2 px-4 border-b text-center">
+                <%= train.ticket_number %>
+              </td>
             </tr>
           </tbody>
         </table>
+
         <div class="w-full py-1 flex items-end justify-end pt-4">
           <button
             type="submit"

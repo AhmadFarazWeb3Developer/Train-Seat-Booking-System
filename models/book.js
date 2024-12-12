@@ -1,3 +1,4 @@
+const { type } = require("express/lib/response");
 const mongoose = require("mongoose");
 
 const bookingSchema = mongoose.Schema({
@@ -8,6 +9,9 @@ const bookingSchema = mongoose.Schema({
   train: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "train",
+  },
+  ticket_number: {
+    type: String,
   },
   seats: {
     type: Number,

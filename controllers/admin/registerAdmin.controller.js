@@ -16,7 +16,7 @@ const registerAdmin = async (req, res) => {
     admin_password,
   });
 
-  return res.status(201).send(newAdmin);
+  res.redirect("/admin/dashboard");
 };
 
 module.exports = registerAdmin;
